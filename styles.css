@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+
+    font-size: 16px;
+    font-family: 'Varela Round', sans-serif;
+    background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);}
+.page{
+    display: flex;
+    flex-wrap: wrap;
+
+    height: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+.section{
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    min-height: 100px;
+    align-items: center;
+    //border: 1px solid red;
+    flex-direction: column;}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    align-self: center;
+    //border: 1px solid red;
+}
+
+.search{
+    //display: flex;
+    //flex-direction: row;
+    //justify-content: left;
+    width:auto;
+
+}
+
+input[name="searchCity"]{
+
+
+    width: 200px;
+    margin-right: 5px;
+}
+
+.container{
+    display: flex;
+    justify-content: flex-start;
+
+
+}
+
+input{
+    margin-left: 10px;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    border: none;
+    padding: 10px;
+}
+
+input:hover{
+    border: none;
+
+}
+input:focus{
+   outline: none;
+}
+
+input[name="searchZip"]{
+    max-width: 100px;
+
+
+
+}
+input[name="searchCountry"]{
+    width: 120px;
+}
+
+
+button[type="submit"]{
+    width: 50px;
+    height: 40px;
+    border: none;
+    background: white;
+    border-radius: 50px;
+    margin-right: 200px;
+    outline: none;
+    margin-left: 25px;
+
+
+}
+
+.today-weather{
+
+    flex-direction: row;
+    justify-content: center;
+
+}
+/*.today-weather>h1{
+    color: white;
+    font-size: 50px;
+}*/
+
+
+/*EXPERIMENT CARD!!!!!*/
+
+.wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.card1 {
+    width: 170px;
+    height: 200px;
+    margin: 1em;
+    perspective: 1500px;
+
+}
+
+.card1 .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+}
+
+.more {
+    display: none;
+}
+.more:checked ~ .content {
+    transform: rotateY(180deg);
+}
+.front1, .back1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    border-radius: 30px;
+}
+
+.front1 .inner, .back1 .inner {
+    height: 100%;
+    display: grid;
+    padding: 1.5em;
+    transform: translateZ(80px) scale(0.94);
+}
+.front1 .inner {
+    grid-template-rows: 1fr 3fr ;
+    justify-items: center;
+}
+
+.front1 h3 {
+    grid-row: 1;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.front1 canvas{
+    grid-row: 2;
+}
+
+
+.front1 {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.front1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 30px;
+    backface-visibility: hidden;
+    background-image: linear-gradient(45deg, #43e97b, #38f9d7 );}
+.back1 .inner {
+    grid-template-columns: 4fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    justify-items: center;
+}
+.back1 {
+    transform: rotateY(180deg);
+    background-color: #fff;
+
+}
+.back1 p{
+    grid-column: 1;
+}
+.button {
+    grid-row: -1;
+    grid-column: 1;
+    align-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    padding: 0 1.5em;
+    height: 3em;
+    line-height: 2.9em;
+    min-width: 3em;
+    background-color: transparent;
+    border: solid 2px #fff;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    left: 50%;
+    backface-visibility: hidden;
+    transition: 0.3s ease-in-out;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.button:hover {
+    background-color: #fff;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
+    color: #43e97b;
+}
+.button.return {
+    line-height: 3em;
+    color: #43e97b;
+    border-color: #43e97b;
+    text-shadow: none;
+}
+.button.return:hover {
+    background-color: #43e97b;
+    color: #fff;
+    box-shadow: none;
+}
+
+
+
+
+
+/*!!!!!!!!!!!!!!!!!*/
+.precipitation{
+    height: 40px;
+    width: 90px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+
+}
+.flip-card-front{
+
+}
+.today-weather{
+    display: block;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.section-title1{
+
+    color: white;
+    font-size: 50px;
+    text-align: center;
+
+}
+.today-weather>div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    //border: 1px solid red;
+}
+.w3-left, .w3-right{
+    display: inline;
+    color: white;
+    font-size: 30px;
+
+}
+
+
+.w3-display-bottommiddle{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+
+}
+
+.w3-hover-white:hover{
+    color: #ffffff;
+    opacity: 70%;
+}
+.w3-transparent{
+    background-color: transparent;
+}
+.w3-border{
+    border: 1px solid white;
+}
+.w3-badge {
+    height:13px;
+    width:13px;
+    padding:0;
+    margin: 10px;
+    border-radius: 50%;
+
+
+}
+.w3-white{
+   background-color: white;
+    height:13px;
+    width:13px;
+    padding:0;
+    border-radius: 50%;
+    margin: 10px;
+
+}
+.span-section{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 10px;
+
+
+}
+
+.hide{
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.mySlides>canvas{
+float: right;
+    margin: 20px;
+}
+.text{
+    float: left;
+    margin: 20px;
+    color: white;
+}
+
+.text>p,h1{
+    padding-bottom: 5px;
+}
+
+@media only screen and (min-width:522px) and (max-width: 927px){
+    input[name="searchCity"]{
+        width: 300px;
+    }
+    input[name="searchCountry"]{
+        width: 200px;
+
+    }
+}
+
+
+
+
+
+@media only screen and (min-width:928px) {
+
+    .search{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .city-input{
+        width: 100%;
+        //border: 1px solid red;
+
+        display: flex;
+        align-items: center;
+    }
+
+    input[name="searchCity"]{
+        margin-left: 150px;
+    }
+
+    input[type="submit"]{
+        margin-right: 50px;
+    }
+
+}
+
+
+
+
+
+
+

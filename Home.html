@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Windle</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+
+
+
+    <script type="module" src="dist/bundle.js"></script>
+
+    <link rel='stylesheet' href="styles.css"/>
+
+</head>
+<body>
+<div class="page">
+    <div class="header" >
+        <img src="imageSrc/windle.png" width=100% height=100%>
+    </div>
+<div class="city-input section" >
+    <div class="search">
+       <div class="container"> <input type="text" placeholder="City" name="searchCity" id="cityInput">
+        <input type="text" placeholder="Zip" name="searchZip" id="zipInput"></div>
+      <div class="container">  <input type="text" placeholder="Country" name="searchCountry" id="countryInput">
+
+        <button type="submit" id="submit"><img src="imageSrc/loupe.svg" width=70% height=70% align="center" ></button></div>
+    </div>
+</div>
+
+<div class="today-weather section " >
+    <h1 class="section-title1" id="section-title1">Today's weather in...</h1>
+    <div class="w3-content w3-display-container hide" id="container" style="width: 100%">
+        <div class="mySlides">
+            <div class="text">
+            <h2 class="condition"></h2>
+            <p class="time-range"></p>
+            <p class="temp"></p>
+            <p class="min"></p>
+            <p class="max"></p>
+            </div>
+            <canvas class="icon1" width="128" height="128"></canvas>
+        </div>
+
+        <div class="mySlides">
+            <div class="text" width="40%">
+            <h2 class="condition"></h2>
+            <p class="time-range"></p>
+            <p class="temp"></p>
+            <p class="min"></p>
+            <p class="max"></p>
+             </div>
+            <canvas class="icon1" width="128" height="128" max-width="40%"></canvas>
+        </div>
+
+        <div class="mySlides">
+            <div class="text">
+                <h2 class="condition"></h2>
+                <p class="time-range"></p>
+                <p class="temp"></p>
+                <p class="min"></p>
+                <p class="max"></p>
+            </div>
+            <canvas class="icon1" width="128" height="128"></canvas>
+        </div>
+
+        <div class="w3-center w3-display-bottommiddle" style=width:100%>
+            <div class="w3-left" >&#10094;</div>
+
+            <div class="span-section"><span class="w3-badge demo w3-border"></span>
+            <span class="w3-badge demo w3-border"></span>
+            <span class="w3-badge demo w3-border"></span></div>
+            <div class="w3-right" >&#10095;</div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="next-finve-days section">
+    <h1 class="section-title1 hide" id="section-title2">Next four days weather</h1>
+    <div class="wrapper">
+    <div class="card1 hide" id="C0">
+        <input type="checkbox" id="card0" class="more" aria-hidden="true">
+        <div class="content">
+            <div class="front1">
+                <div class="inner">
+                    <h3 class="date"></h3>
+                    <canvas class="icon2" width="80" height="80" max-width="40%"></canvas>
+                    <label for="card0" class="button" aria-hidden="true">
+                        Details
+                    </label>
+                </div>
+            </div>
+            <div class="back1">
+                <div class="inner">
+                    <p class="temp"></p>
+                    <p class="min"></p>
+                    <p class="max"></p>
+                    <label for="card0" class="button return" aria-hidden="true">
+                        Back
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="card1 hide" id="C1">
+            <input type="checkbox" id="card2" class="more" aria-hidden="true">
+            <div class="content">
+                <div class="front1">
+                    <div class="inner">
+                        <h3 class="date"></h3>
+                        <canvas class="icon2" width="80" height="80" max-width="40%"></canvas>
+                        <label for="card2" class="button" aria-hidden="true">
+                            Details
+                        </label>
+                    </div>
+                </div>
+                <div class="back1">
+                    <div class="inner">
+                        <p class="temp"></p>
+                        <p class="min"></p>
+                        <p class="max"></p>
+                        <label for="card2" class="button return" aria-hidden="true">
+                            Back
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card1 hide" id="C2">
+            <input type="checkbox" id="card3" class="more" aria-hidden="true">
+            <div class="content">
+                <div class="front1">
+                    <div class="inner">
+                        <h3 class="date"></h3>
+                        <canvas class="icon2" width="80" height="80" max-width="40%"></canvas>
+                        <label for="card3" class="button" aria-hidden="true">
+                            Details
+                        </label>
+                    </div>
+                </div>
+                <div class="back1">
+                    <div class="inner">
+                        <p class="temp"></p>
+                        <p class="min"></p>
+                        <p class="max"></p>
+                        <label for="card3" class="button return" aria-hidden="true">
+                            Back
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card1 hide" id="C3">
+            <input type="checkbox" id="card4" class="more" aria-hidden="true">
+            <div class="content">
+                <div class="front1">
+                    <div class="inner">
+                        <h3 class="date"></h3>
+                        <canvas class="icon2" width="80" height="80" max-width="40%"></canvas>
+                        <label for="card4" class="button" aria-hidden="true">
+                            Details
+                        </label>
+                    </div>
+                </div>
+                <div class="back1">
+                    <div class="inner">
+                        <p class="temp"></p>
+                        <p class="min"></p>
+                        <p class="max"></p>
+                        <label for="card4" class="button return" aria-hidden="true">
+                            Back
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+</div>
+</div>
+
+
+</body>
+
+
+</html>
