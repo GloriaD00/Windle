@@ -2,9 +2,9 @@
 
 
 let list= require("../node_modules/country-list/country-list.js");
+import dotenv from 'dotenv';
 
-
-
+dotenv.config();
 
 let cityInput = document.getElementById("cityInput");
 let zipInput = document.getElementById("zipInput");
@@ -32,10 +32,10 @@ function call(city,country,zip) {
 
 
    else if (city!="" && country!="") {
-        API = 'https://api.openweathermap.org/data/2.5/forecast?q='+city.toLowerCase()+','+countryCode.toLowerCase()+'&units=metric&APPID=1a9b84b61d1a8d6fdbb52fa2800ef894';
+        API = 'https://api.openweathermap.org/data/2.5/forecast?q='+city.toLowerCase()+','+countryCode.toLowerCase()+'&units=metric&APPID='+process.env.API_KEY;
     }
     else if(country!="" && zip!=""){
-        API = 'https://api.openweathermap.org/data/2.5/forecast?q='+zip.toString()+','+countryCode.toLowerCase()+'&units=metric&APPID=1a9b84b61d1a8d6fdbb52fa2800ef894';
+        API = 'https://api.openweathermap.org/data/2.5/forecast?q='+zip.toString()+','+countryCode.toLowerCase()+'&units=metric&APPID='+process.env.API_KEY;
     }
 
     else {
@@ -57,7 +57,7 @@ export function callWCoords(position) {
         let country1=data.results[0].address_components[6].short_name;
 
 
-        call1='https://api.openweathermap.org/data/2.5/forecast?q='+city1.toLowerCase()+','+country1.toLowerCase()+'&units=metric&APPID=1a9b84b61d1a8d6fdbb52fa2800ef894';
+        call1='https://api.openweathermap.org/data/2.5/forecast?q='+city1.toLowerCase()+','+country1.toLowerCase()+'&units=metric&APPID='+process.env.API_KEY;
         getPlaceC(call1);
 
     });
@@ -112,14 +112,7 @@ function getPlace() {
     }).then(data=>{
         let weatherList=data.list;
 
-        let cityOBj=data.city;
-        if(cityOBj==null){
-            alert("check your city spelling");
-        }
-        let city = cityOBj.name;
-        if(city==null){
-            alert("check your city spelling");
-        }
+
         let descs = new Array(3);
         let times = new Array(3);
         let mins = new Array(3);

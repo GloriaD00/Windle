@@ -330,7 +330,7 @@ button[type="submit"]{
     background-color: transparent;
 }
 .w3-border{
-    border: 1px solid white;
+    border: 2px solid white;
 }
 .w3-badge {
     height:13px;
