@@ -95,6 +95,8 @@ function getPlaceC(call) {
         settler(city);
         // conditionSettler(description,time);
 
+    }).catch(function () {
+        alert("Something went wrong try to check your spelling");
     });
 
 
@@ -135,6 +137,8 @@ function getPlace() {
         settler(city);
        // conditionSettler(description,time);
 
+    }).catch(function () {
+        alert("Something went wrong try to check your spelling");
     });
 
 }
