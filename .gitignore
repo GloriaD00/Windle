@@ -1,5 +1,8 @@
 # Default ignored files
 /.idea
 /node_modules
-/webpack.config.js
+/dist
+/package-lock.json
+/Gloria Desideri js.pdf
+/windle.env
 

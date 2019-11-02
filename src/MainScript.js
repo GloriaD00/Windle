@@ -10,6 +10,7 @@ let spans = document.getElementsByClassName("demo");
 
 
 
+console.log(process.env.API_KEY);
 
 
 for (let i=0;i<spans.length; i++){
@@ -30,7 +31,7 @@ let visible2 = false;
 let visible3 = false;
 
 if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(callWCoords);
+    if(navigator.geolocation.getCurrentPosition(callWCoords))
     setTimeout(()=>visibleCards(),3000);
 }
 
@@ -38,8 +39,8 @@ document.addEventListener("keypress", logKey);
 
 function logKey(e) {
     if (e.code=="Enter"){
-        getPlace();
-        setTimeout(()=>visibleCards(),1000);
+        if(getPlace()){
+        setTimeout(()=>visibleCards(),1000)}
     }
 
 }

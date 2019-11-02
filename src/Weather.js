@@ -1,10 +1,10 @@
 
 
 
-let list= require("../node_modules/country-list/country-list.js");
-import dotenv from 'dotenv';
+let list= require("country-list");
+//import dotenv from 'dotenv';
 
-dotenv.config();
+//dotenv.config();
 
 let cityInput = document.getElementById("cityInput");
 let zipInput = document.getElementById("zipInput");
@@ -40,6 +40,7 @@ function call(city,country,zip) {
 
     else {
         alert("Please type your country and city or your country and zip code");
+
     }
     return API;
 }
@@ -49,16 +50,22 @@ export function callWCoords(position) {
     let latitude = position.coords.latitude;
     let longitude =position.coords.longitude;
     let call1;
-    let API1="https://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&key=AIzaSyAfH3Ypu0Al8HpNRXhOPEzGLeNbkxOlsoI"
+    let API1="https://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&key="+process.env.GOOGLE_KEY;
     fetch(API1).then(
         res=>res.json()).then( data=>{
+        try {
+            let city1 = data.results[0].address_components[3].long_name;
+            let country1 = data.results[0].address_components[6].short_name;
 
-        let city1=data.results[0].address_components[3].long_name;
-        let country1=data.results[0].address_components[6].short_name;
 
-
-        call1='https://api.openweathermap.org/data/2.5/forecast?q='+city1.toLowerCase()+','+country1.toLowerCase()+'&units=metric&APPID='+process.env.API_KEY;
-        getPlaceC(call1);
+            call1 = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city1.toLowerCase() + ',' + country1.toLowerCase() + '&units=metric&APPID=' + process.env.API_KEY;
+            getPlaceC(call1);
+            return true;
+        }
+       catch (e) {
+            document.getElementById("section-title1").innerHTML="oops something went wrong with geolocation";
+            return false;
+        }
 
     });
 
@@ -95,8 +102,6 @@ function getPlaceC(call) {
         settler(city);
         // conditionSettler(description,time);
 
-    }).catch(function () {
-        alert("Something went wrong try to check your spelling");
     });
 
 
@@ -136,9 +141,11 @@ function getPlace() {
         cardSettler(weatherList);
         settler(city);
        // conditionSettler(description,time);
+        return true;
 
     }).catch(function () {
-        alert("Something went wrong try to check your spelling");
+        document.getElementById("section-title1").innerHTML="oops something went wrong";
+        return false;
     });
 
 }

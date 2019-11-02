@@ -13,10 +13,12 @@
     "country-list": "^2.2.0",
     "dotenv": "^8.1.0",
     "flip": "^1.0.0",
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "skycons": "^1.0.0"
   },
   "devDependencies": {
+    "dotenv-webpack": "^1.7.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9"
   }
